@@ -1,34 +1,45 @@
-import { createStyles, Switch, Group, rem } from '@mantine/core';
+import { createStyles, Switch, Group, rem } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   body: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
 
   track: {
     width: rem(40),
-    height: rem(20),
-    overflow: 'visible',
+    height: rem(15),
+    overflow: "visible",
   },
 
   thumb: {
     width: rem(20),
     height: rem(20),
     left: rem(-2),
-    transition: 'background-color 100ms ease, left 100ms ease',
+    transition: "background-color 100ms ease, left 100ms ease",
 
-    'input:checked + * > &': {
+    "input:checked + * > &": {
       backgroundColor: theme.fn.primaryColor(),
     },
   },
 }));
-
-export function ToggleButton() {
+interface ToggleProps {
+  toggle: boolean;
+  setToggle: any;
+}
+export function ToggleButton({ toggle, setToggle }: ToggleProps) {
   const { classes } = useStyles();
   return (
     <Group position="center" pl="md" pt="md" pr="md">
-      GST Exclusive<Switch label="" classNames={classes} />GST Inclusive
+      GST Exclusive
+      <Switch
+        label=""
+        classNames={classes}
+        onClick={() => {
+          setToggle(!toggle);
+        }}
+      />
+      GST Inclusive
     </Group>
   );
 }

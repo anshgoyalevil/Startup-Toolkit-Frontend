@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { createStyles, NumberInput, Slider, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -38,14 +37,18 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export function GSTRateSlider() {
+interface RateProps {
+  rate: any,
+  setRate: any,
+};
+
+export function GSTRateSlider({rate, setRate}: RateProps) {
   const { classes } = useStyles();
-  const [value, setValue] = useState<number | ''>(5);
   return (
     <div className={classes.wrapper}>
       <NumberInput
-        value={value}
-        onChange={setValue}
+        value={rate}
+        onChange={setRate}
         label="Enter GST Rate (In %)"
         placeholder="5%"
         step={1}
@@ -59,8 +62,8 @@ export function GSTRateSlider() {
         step={1}
         min={0}
         label={null}
-        value={value === '' ? 0 : value}
-        onChange={setValue}
+        value={rate === '' ? 0 : rate}
+        onChange={setRate}
         size={2}
         radius={0}
         className={classes.slider}

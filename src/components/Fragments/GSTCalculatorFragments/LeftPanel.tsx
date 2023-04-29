@@ -30,22 +30,42 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function LeftPanel() {
+interface LeftPanelProps {
+  toggle: boolean;
+  setToggle: any;
+  cost: any;
+  setCost: any;
+  rate: any;
+  setRate: any;
+  profitRatio: any;
+  setProfitRatio: any;
+}
+
+export default function LeftPanel({
+  toggle,
+  setToggle,
+  cost,
+  setCost,
+  rate,
+  setRate,
+  profitRatio,
+  setProfitRatio,
+}: LeftPanelProps) {
   const { classes } = useStyles();
 
   return (
     <Card withBorder radius="md" p="md" className={classes.card}>
       <Card.Section p="sm">
-        <ToggleButton />
+        <ToggleButton toggle={toggle} setToggle={setToggle} />
       </Card.Section>
       <Card.Section p="md">
-        <AmountInput />
+        <AmountInput cost={cost} setCost={setCost} />
       </Card.Section>
       <Card.Section p="md">
-        <GSTRateSlider />
+        <GSTRateSlider rate={rate} setRate={setRate} />
       </Card.Section>
       <Card.Section pb="md" pl="md" pr="md" pt="sm">
-        <ProfitRatioInput />
+        <ProfitRatioInput profitRatio={profitRatio} setProfitRatio={setProfitRatio} />
       </Card.Section>
     </Card>
   );

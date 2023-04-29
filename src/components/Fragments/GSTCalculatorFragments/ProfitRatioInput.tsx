@@ -38,10 +38,14 @@ const useStyles = createStyles((theme, { floating }: { floating: boolean }) => (
   },
 }));
 
-export function ProfitRatioInput() {
+interface RatioProps {
+  profitRatio: any,
+  setProfitRatio: any,
+};
+
+export function ProfitRatioInput({profitRatio, setProfitRatio}: RatioProps) {
   const [focused, setFocused] = useState(false);
-  const [value, setValue] = useState('');
-  const { classes } = useStyles({ floating: value.trim().length !== 0 || focused });
+  const { classes } = useStyles({ floating: `${profitRatio}`.trim().length !== 0 || focused });
 
   return (
     <TextInput
@@ -49,8 +53,8 @@ export function ProfitRatioInput() {
       placeholder="Enter Profit Ratio (In %)"
       required
       classNames={classes}
-      value={value}
-      onChange={(event) => setValue(event.currentTarget.value)}
+      value={profitRatio}
+      onChange={(event) => setProfitRatio(event.currentTarget.value)}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       mt="md"

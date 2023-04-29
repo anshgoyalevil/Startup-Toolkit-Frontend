@@ -38,10 +38,14 @@ const useStyles = createStyles((theme, { floating }: { floating: boolean }) => (
   },
 }));
 
-export function AmountInput() {
+interface AmountProps {
+  cost: any,
+  setCost: any,
+};
+
+export function AmountInput({cost, setCost}: AmountProps) {
   const [focused, setFocused] = useState(false);
-  const [value, setValue] = useState('');
-  const { classes } = useStyles({ floating: value.trim().length !== 0 || focused });
+  const { classes } = useStyles({ floating: cost.trim().length !== 0 || focused });
 
   return (
     <TextInput
@@ -49,8 +53,8 @@ export function AmountInput() {
       placeholder="Enter the Cost of Goods/Services"
       required
       classNames={classes}
-      value={value}
-      onChange={(event) => setValue(event.currentTarget.value)}
+      value={cost}
+      onChange={(event) => setCost(event.currentTarget.value)}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       mt="md"

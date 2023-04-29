@@ -45,7 +45,13 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function RightPanel() {
+interface ResultProps {
+    selling: any,
+    profit: any,
+    gst: any,
+}
+
+export default function RightPanel({selling, profit, gst}: ResultProps) {
   const { classes } = useStyles();
 
   return (
@@ -55,7 +61,7 @@ export default function RightPanel() {
         Total cost of{" "}
           <Text component="span" className={classes.highlight} inherit>
             Selling
-          </Text>{" "}
+          </Text>&nbsp;&nbsp;&nbsp;{selling === 0 ? '' : `₹${selling}`}
         </Title>
       </Card.Section>
       <hr></hr>
@@ -64,7 +70,7 @@ export default function RightPanel() {
         Total{" "}
           <Text component="span" className={classes.highlight} inherit>
             GST
-          </Text>{" "}
+          </Text>&nbsp;&nbsp;&nbsp;{gst === 0 ? '' : `₹${gst}`}
         </Title>
       </Card.Section>
       <hr></hr>
@@ -73,7 +79,7 @@ export default function RightPanel() {
         Total{" "}
           <Text component="span" className={classes.highlight} inherit>
             Profit
-          </Text>{" "}
+          </Text>&nbsp;&nbsp;&nbsp;{profit === undefined ? '' : `₹${profit}`}
         </Title>
       </Card.Section>
       <Card.Section p="md">
