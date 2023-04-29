@@ -113,21 +113,21 @@ export function Navbar({ links }: HeaderResponsiveProps) {
       })}
       onClick={(event) => {
         setActive(link.link);
-        console.log(link.link);
         close();
       }}
     >
       {link.label}
     </Link>
   ));
-  console.log(localStorage.getItem("mantine-color-scheme"));
   return (
     <Header height={HEADER_HEIGHT} mb={40} className={classes.root}>
       <Container className={classes.header}>
-        <Logo/>
+        <Logo />
+
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
+        <DarkModeButton></DarkModeButton>
 
         <Burger
           opened={opened}
@@ -135,7 +135,6 @@ export function Navbar({ links }: HeaderResponsiveProps) {
           className={classes.burger}
           size="sm"
         />
-
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
             <Paper className={classes.dropdown} withBorder style={styles}>
@@ -143,7 +142,6 @@ export function Navbar({ links }: HeaderResponsiveProps) {
             </Paper>
           )}
         </Transition>
-        <DarkModeButton></DarkModeButton>
       </Container>
     </Header>
   );
