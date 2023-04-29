@@ -122,8 +122,12 @@ export function Navbar({ links }: HeaderResponsiveProps) {
   return (
     <Header height={HEADER_HEIGHT} mb={40} className={classes.root}>
       <Container className={classes.header}>
-        <Logo />
-
+        <Link to="/" onClick={() => {
+        setActive("/");
+        close();
+      }}>
+          <Logo />
+        </Link>
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
