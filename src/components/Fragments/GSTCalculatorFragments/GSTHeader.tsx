@@ -2,7 +2,6 @@ import {
   createStyles,
   Title,
   Text,
-  Button,
   Container,
   rem,
 } from "@mantine/core";
