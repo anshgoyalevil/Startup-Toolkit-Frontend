@@ -60,7 +60,7 @@ import {
       position: 'relative',
       backgroundColor: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).background,
       borderRadius: theme.radius.sm,
-      padding: `${rem(4)} ${rem(12)}`,
+      padding: `${rem(1)} ${rem(12)}`,
     },
   }));
   
