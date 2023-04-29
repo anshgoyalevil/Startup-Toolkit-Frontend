@@ -11,6 +11,8 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
+import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 const HEADER_HEIGHT = rem(60);
 
@@ -103,26 +105,26 @@ export function Navbar({ links }: HeaderResponsiveProps) {
   const { classes, cx } = useStyles();
 
   const items = links.map((link) => (
-    <a
+    <Link
       key={link.label}
-      href={link.link}
+      to={link.link}
       className={cx(classes.link, {
         [classes.linkActive]: active === link.link,
       })}
       onClick={(event) => {
-        event.preventDefault();
         setActive(link.link);
+        console.log(link.link);
         close();
       }}
     >
       {link.label}
-    </a>
+    </Link>
   ));
-
+  console.log(localStorage.getItem("mantine-color-scheme"));
   return (
     <Header height={HEADER_HEIGHT} mb={40} className={classes.root}>
       <Container className={classes.header}>
-        {/* <MantineLogo size={28} /> */}
+        <Logo/>
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
