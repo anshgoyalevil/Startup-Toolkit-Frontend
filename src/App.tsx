@@ -28,8 +28,7 @@ export default function App() {
     >
       <MantineProvider
         theme={{ colorScheme, fontFamily: 'Verdana, sans-serif',
-        fontFamilyMonospace: 'Monaco, Courier, monospace',
-        headings: { fontFamily: 'Greycliff CF, sans-serif' }, }}
+        fontFamilyMonospace: 'Monaco, Courier, monospace', }}
         withGlobalStyles
         withNormalizeCSS
       >
