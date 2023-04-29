@@ -4,7 +4,9 @@ import {
   ColorScheme,
 } from "@mantine/core";
 import { useHotkeys, useLocalStorage } from "@mantine/hooks";
-import { HeaderResponsive } from "./components/Fragments/header";
+import Home from "./components/Screens/Home";
+import { Footer } from "./components/Fragments/Footer/Footer";
+import { Navbar } from "./components/Fragments/Navbar/Navbar";
 import links from "./components/data/links";
 
 export default function App() {
@@ -29,7 +31,9 @@ export default function App() {
         withGlobalStyles
         withNormalizeCSS
       >
-        <HeaderResponsive links={links.links}></HeaderResponsive>
+        <Navbar links={links.links}/>
+        <Home />
+        <Footer/>
       </MantineProvider>
     </ColorSchemeProvider>
   );
