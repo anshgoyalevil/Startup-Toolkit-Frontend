@@ -1,5 +1,8 @@
 import React from "react";
 import { Container, Grid, SimpleGrid, Skeleton, useMantineTheme, rem } from '@mantine/core';
+import LeftPanel from "../Fragments/GSTCalculatorFragments/LeftPanel";
+import { GSTHeader } from "../Fragments/GSTCalculatorFragments/GSTHeader";
+import RightPanel from "../Fragments/GSTCalculatorFragments/RightPanel";
 
 const PRIMARY_COL_HEIGHT = rem(300);
 
@@ -8,11 +11,12 @@ function GSTCalculator() {
   
     return (
       <Container my="md">
+        <GSTHeader/>
         <SimpleGrid cols={2} spacing="md" breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-          <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false} />
+          <LeftPanel/>
           <Grid gutter="md">
             <Grid.Col>
-              <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false} />
+              <RightPanel/>
             </Grid.Col>
           </Grid>
         </SimpleGrid>
