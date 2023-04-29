@@ -31,7 +31,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function LeftPanel() {
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
 
   return (
     <Card withBorder radius="md" p="md" className={classes.card}>

@@ -1,14 +1,11 @@
 import React from "react";
-import { Container, Grid, SimpleGrid, Skeleton, useMantineTheme, rem } from '@mantine/core';
+import { Container, Grid, SimpleGrid } from '@mantine/core';
 import LeftPanel from "../Fragments/GSTCalculatorFragments/LeftPanel";
 import { GSTHeader } from "../Fragments/GSTCalculatorFragments/GSTHeader";
 import RightPanel from "../Fragments/GSTCalculatorFragments/RightPanel";
 
-const PRIMARY_COL_HEIGHT = rem(300);
 
-function GSTCalculator() {
-    const theme = useMantineTheme();
-  
+function GSTCalculator() {  
     return (
       <Container my="md">
         <GSTHeader/>

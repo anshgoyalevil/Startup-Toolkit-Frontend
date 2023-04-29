@@ -1,8 +1,4 @@
 import { Card, Title, createStyles, rem, Text } from "@mantine/core";
-import { ToggleButton } from "./ToggleButton";
-import { AmountInput } from "./AmountInput";
-import { GSTRateSlider } from "./GSTRateSlider";
-import { ProfitRatioInput } from "./ProfitRatioInput";
 import GetGSTRegButton from "./GetGSTRegButton";
 
 const useStyles = createStyles((theme) => ({
@@ -50,7 +46,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function RightPanel() {
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
 
   return (
     <Card withBorder radius="md" p="md" className={classes.card}>
@@ -81,7 +77,7 @@ export default function RightPanel() {
         </Title>
       </Card.Section>
       <Card.Section p="md">
-        <a href="https://startupkro.com" target="blank"><GetGSTRegButton size="1.2rem" p="md" fullWidth>Get GST Registration</GetGSTRegButton></a>
+        <a href="https://startupkro.com" target="blank"><GetGSTRegButton size="1.2rem" p="md" fullWidth>Get your GST Registration</GetGSTRegButton></a>
       </Card.Section>
     </Card>
   );
