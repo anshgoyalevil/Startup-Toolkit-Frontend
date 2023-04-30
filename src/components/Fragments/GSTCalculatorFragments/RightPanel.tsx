@@ -98,7 +98,7 @@ export default function RightPanel({
         <></>
       )}
       <Card.Section p="md">
-        <a href="https://startupkro.com" target="blank">
+        <a href="https://startupkro.com/gst-registration/" target="blank">
           <GetGSTRegButton size="1.2rem" p="md" fullWidth>
             Get your GST Registration
           </GetGSTRegButton>
