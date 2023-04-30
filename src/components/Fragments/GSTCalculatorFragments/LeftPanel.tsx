@@ -65,7 +65,7 @@ export default function LeftPanel({
         <GSTRateSlider rate={rate} setRate={setRate} />
       </Card.Section>
       <Card.Section pb="md" pl="md" pr="md" pt="sm">
-        <ProfitRatioInput profitRatio={profitRatio} setProfitRatio={setProfitRatio} />
+        <ProfitRatioInput profitRatio={profitRatio} setProfitRatio={setProfitRatio} toggle={toggle} />
       </Card.Section>
     </Card>
   );

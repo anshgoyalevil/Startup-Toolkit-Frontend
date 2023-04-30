@@ -46,44 +46,63 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface ResultProps {
-    selling: any,
-    profit: any,
-    gst: any,
+  selling: any;
+  profit: any;
+  gst: any;
+  toggle: any;
 }
 
-export default function RightPanel({selling, profit, gst}: ResultProps) {
+export default function RightPanel({
+  selling,
+  profit,
+  gst,
+  toggle,
+}: ResultProps) {
   const { classes } = useStyles();
 
   return (
     <Card withBorder radius="md" p="md" className={classes.card}>
       <Card.Section p="md">
         <Title className={classes.title}>
-        Total cost of{" "}
+          Total cost of{" "}
           <Text component="span" className={classes.highlight} inherit>
             Selling
-          </Text>&nbsp;&nbsp;&nbsp;{selling === 0 ? '' : `₹${selling}`}
+          </Text>
+          &nbsp;&nbsp;&nbsp;{selling === 0 ? "" : `₹${selling}`}
         </Title>
       </Card.Section>
       <hr></hr>
       <Card.Section p="md">
         <Title className={classes.title}>
-        Total{" "}
+          Total{" "}
           <Text component="span" className={classes.highlight} inherit>
             GST
-          </Text>&nbsp;&nbsp;&nbsp;{gst === 0 ? '' : `₹${gst}`}
+          </Text>
+          &nbsp;&nbsp;&nbsp;{gst === 0 ? "" : `₹${gst}`}
         </Title>
       </Card.Section>
-      <hr></hr>
+      {toggle === false ? (
+        <div>
+          <hr></hr>
+          <Card.Section p="md">
+            <Title className={classes.title}>
+              Total{" "}
+              <Text component="span" className={classes.highlight} inherit>
+                Profit
+              </Text>
+              &nbsp;&nbsp;&nbsp;{profit === undefined ? "" : `₹${profit}`}
+            </Title>
+          </Card.Section>
+        </div>
+      ) : (
+        <></>
+      )}
       <Card.Section p="md">
-        <Title className={classes.title}>
-        Total{" "}
-          <Text component="span" className={classes.highlight} inherit>
-            Profit
-          </Text>&nbsp;&nbsp;&nbsp;{profit === undefined ? '' : `₹${profit}`}
-        </Title>
-      </Card.Section>
-      <Card.Section p="md">
-        <a href="https://startupkro.com" target="blank"><GetGSTRegButton size="1.2rem" p="md" fullWidth>Get your GST Registration</GetGSTRegButton></a>
+        <a href="https://startupkro.com" target="blank">
+          <GetGSTRegButton size="1.2rem" p="md" fullWidth>
+            Get your GST Registration
+          </GetGSTRegButton>
+        </a>
       </Card.Section>
     </Card>
   );

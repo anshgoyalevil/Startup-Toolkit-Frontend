@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   createStyles,
   Header,
@@ -19,7 +19,7 @@ const HEADER_HEIGHT = rem(60);
 const useStyles = createStyles((theme) => ({
   root: {
     position: "relative",
-    zIndex: 1,
+    zIndex: 10,
   },
 
   dropdown: {
@@ -103,6 +103,10 @@ export function Navbar({ links }: HeaderResponsiveProps) {
   const [opened, { toggle, close }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
+
+  useEffect(()=>{
+    setActive(window.location.pathname);
+  }, []);
 
   const items = links.map((link) => (
     <Link
